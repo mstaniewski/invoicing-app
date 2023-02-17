@@ -1,0 +1,11 @@
+<div class="grid">
+  <app-drawer [isOpen]="isOpen"></app-drawer>
+
+  <div
+    class="transition-all ease-in-out duration-300"
+    [class.content--collapsed]="isOpen"
+  >
+    <app-top-bar (onToggle)="onDrawerToggle()" [isOpen]="isOpen"></app-top-bar>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "name": "netm8",
+  "private": true,
+  "workspaces": ["packages/*", "services/*"],
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Michał Staniewski",
+  "license": "MIT"
+}

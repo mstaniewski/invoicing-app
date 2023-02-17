@@ -1,0 +1,18 @@
+<app-container>
+  <app-page-header title="Issue new invoice"></app-page-header>
+  <form>
+    <div class="flex justify-between">
+      <div class="flex">
+        <app-text-field label="Signature" [model]="signature"></app-text-field>
+      </div>
+      <div class="flex flex-col">
+        <app-text-field
+          label="Issued at"
+          type="date"
+          [model]="issuedAt"
+        ></app-text-field>
+        <app-text-field label="Sold at" [model]="soldAt"></app-text-field>
+      </div>
+    </div>
+  </form>
+</app-container>

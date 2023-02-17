@@ -1,0 +1,56 @@
+<app-container>
+  <app-page-header title="Invoices">
+    <app-link-button to="/invoices/issue">Issue new invoice</app-link-button>
+  </app-page-header>
+
+  <table class="table w-full border-spacing-y-2 border-separate">
+    <thead>
+      <tr>
+        <th class="py-4">#</th>
+        <th class="py-4">Signature</th>
+        <th class="py-4">Customer</th>
+        <th class="py-4">Amount</th>
+        <th class="py-4">Issued at</th>
+        <th class="py-4">Due date</th>
+        <th class="py-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let invoice of data" class="group hover:shadow-md">
+        <td
+          class="px-2 py-4 bg-white/50 rounded-l text-center group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        >
+          1
+        </td>
+        <td
+          class="px-2 py-3 bg-white/50 text-center group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        >
+          {{ invoice.signature }}
+        </td>
+        <td
+          class="px-2 py-3 bg-white/50 text-center group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        >
+          {{ invoice.customer.displayName }}
+        </td>
+        <td
+          class="px-2 py-3 bg-white/50 text-center group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        >
+          {{ invoice.amount | currency : "PLN" }}
+        </td>
+        <td
+          class="px-2 py-3 bg-white/50 text-center group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        >
+          {{ invoice.issuedAt | date : "mediumDate" }}
+        </td>
+        <td
+          class="px-2 py-3 bg-white/50 text-center group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        >
+          {{ invoice.dueDate | date : "mediumDate" }}
+        </td>
+        <td
+          class="px-2 py-3 bg-white/50 rounded-r group-hover:bg-white/75 group-hover:scale-105 transition-all duration-150"
+        ></td>
+      </tr>
+    </tbody>
+  </table>
+</app-container>

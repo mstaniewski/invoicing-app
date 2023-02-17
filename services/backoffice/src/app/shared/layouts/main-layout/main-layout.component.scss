@@ -1,0 +1,13 @@
+.main-layout {
+  display: grid;
+  grid-template-areas: "top";
+  overflow-x: hidden;
+}
+
+.content {
+  transition: 0.3s margin-left ease-in-out;
+
+  &--collapsed {
+    margin-left: 250px;
+  }
+}
