@@ -6,14 +6,16 @@ import { InvoiceDetailsComponent } from './pages/invoice-details/invoice-details
 import { MainLayoutComponent } from '../shared/layouts/main-layout/main-layout.component';
 import { SharedModule } from '../shared/shared.module';
 import { IssueInvoiceComponent } from './pages/issue-invoice/issue-invoice.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SubjectComponent } from './components/subject/subject.component';
 
 @NgModule({
-  declarations: [IssueInvoiceComponent],
+  declarations: [IssueInvoiceComponent, SubjectComponent],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: 'invoices',

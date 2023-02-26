@@ -1,18 +1,71 @@
 <app-container>
   <app-page-header title="Issue new invoice"></app-page-header>
-  <form>
+  <form [formGroup]="invoice" (ngSubmit)="onSubmit()">
     <div class="flex justify-between">
-      <div class="flex">
-        <app-text-field label="Signature" [model]="signature"></app-text-field>
-      </div>
-      <div class="flex flex-col">
+      <div class="flex basis-1/3">
         <app-text-field
+          [form]="invoice"
+          label="Signature"
+          name="signature"
+          class="w-full"
+        ></app-text-field>
+      </div>
+      <div class="flex flex-col basis-1/4 gap-y-3">
+        <app-text-field
+          [form]="invoice"
           label="Issued at"
           type="date"
-          [model]="issuedAt"
+          name="issuedAt"
         ></app-text-field>
-        <app-text-field label="Sold at" [model]="soldAt"></app-text-field>
+        <app-text-field
+          [form]="invoice"
+          label="Sold at"
+          type="date"
+          name="soldAt"
+        ></app-text-field>
       </div>
     </div>
+
+    <div class="flex justify-between">
+      <div class="basis-1/3">
+        <app-subject></app-subject>
+      </div>
+      <div class="basis-1/3">
+        <app-subject></app-subject>
+      </div>
+    </div>
+
+    <table class="table-fixed">
+      <thead>
+        <tr>
+          <td>Lp.</td>
+          <td>Service</td>
+          <td>Unit</td>
+          <td>Nett price</td>
+          <td>Nett amount</td>
+          <td>VAT rate</td>
+          <td>VAT amount</td>
+          <td>Gross amount</td>
+        </tr>
+      </thead>
+      <tbody formArrayName="items">
+        <tr *ngFor="let item of invoice.controls.items.controls; let i = index">
+          <td>t</td>
+          <td>
+            <app-text-field
+              [form]="invoice"
+              [name]="i + '.summary'"
+            ></app-text-field>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <app-button (click)="onAddItem()" type="button">Add item</app-button>
+
+    <app-button>Issue</app-button>
   </form>
 </app-container>

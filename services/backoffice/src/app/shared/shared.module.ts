@@ -10,6 +10,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { LinkButtonComponent } from './components/link-button/link-button.component';
 import { ContainerComponent } from './components/container/container.component';
 import { TextFieldComponent } from './components/text-field/text-field.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,12 @@ import { TextFieldComponent } from './components/text-field/text-field.component
     ContainerComponent,
     TextFieldComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild([])],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild([]),
+  ],
   exports: [
     MainLayoutComponent,
     AvatarComponent,

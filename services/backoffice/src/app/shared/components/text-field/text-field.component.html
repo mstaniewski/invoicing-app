@@ -1,6 +1,20 @@
-<div class="flex flex-col">
+<div *ngIf="form" [formGroup]="form">
   <label class="flex flex-col gap-y-1">
-    <span *ngIf="label">{{ label }}</span>
-    <input class="rounded py-2" [type]="type" />
+    <span class="mb-1" *ngIf="label">{{ label }}</span>
+    <input
+      class="rounded py-2 px-3 w-full"
+      [type]="type"
+      [formControlName]="name"
+    />
+  </label>
+</div>
+<div *ngIf="!form">
+  <label class="flex flex-col gap-y-1">
+    <span class="mb-1" *ngIf="label">{{ label }}</span>
+    <input
+      class="rounded py-2 px-3 w-full"
+      [type]="type"
+      [formControlName]="name"
+    />
   </label>
 </div>
